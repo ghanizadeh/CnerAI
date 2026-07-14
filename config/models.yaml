@@ -1,0 +1,108 @@
+classification:
+  LogisticRegression:
+    class: sklearn.linear_model.LogisticRegression
+    default_params:
+      max_iter: 1000
+      random_state: 42
+    param_grid:
+      C: [0.01, 0.1, 1, 10]
+      solver: [lbfgs, liblinear]
+
+  RandomForestClassifier:
+    class: sklearn.ensemble.RandomForestClassifier
+    default_params:
+      n_estimators: 100
+      random_state: 42
+    param_grid:
+      n_estimators: [50, 100, 200]
+      max_depth: [null, 5, 10]
+
+  GradientBoostingClassifier:
+    class: sklearn.ensemble.GradientBoostingClassifier
+    default_params:
+      n_estimators: 100
+      random_state: 42
+    param_grid:
+      n_estimators: [50, 100, 200]
+      learning_rate: [0.05, 0.1, 0.2]
+
+  SVC:
+    class: sklearn.svm.SVC
+    default_params:
+      probability: true
+      random_state: 42
+    param_grid:
+      C: [0.1, 1, 10]
+      kernel: [rbf, linear]
+
+  KNeighborsClassifier:
+    class: sklearn.neighbors.KNeighborsClassifier
+    default_params:
+      n_neighbors: 5
+    param_grid:
+      n_neighbors: [3, 5, 7, 11]
+
+regression:
+
+  RandomForestRegressor:
+    class: sklearn.ensemble.RandomForestRegressor
+    default_params:
+      n_estimators: 100
+      random_state: 42
+    param_grid:
+      n_estimators: [50, 100, 200]
+      max_depth: [null, 5, 10]
+
+  GradientBoostingRegressor:
+    class: sklearn.ensemble.GradientBoostingRegressor
+    default_params:
+      n_estimators: 100
+      random_state: 42
+    param_grid:
+      n_estimators: [50, 100, 200]
+      learning_rate: [0.05, 0.1, 0.2]
+
+  LightGBM:
+    class: lightgbm.LGBMRegressor
+    default_params:
+      n_estimators: 100
+      learning_rate: 0.1
+      random_state: 42
+    param_grid:
+      n_estimators: [50, 100, 200]
+      learning_rate: [0.05, 0.1, 0.2]
+      max_depth: [-1, 5, 10]
+      num_leaves: [31, 50, 100]
+
+  CatBoost:
+    class: catboost.CatBoostRegressor
+    default_params:
+      iterations: 100
+      learning_rate: 0.1
+      depth: 6
+      verbose: 0
+      random_state: 42
+    param_grid:
+      iterations: [100, 200, 500]
+      learning_rate: [0.03, 0.1, 0.2]
+      depth: [4, 6, 8]
+
+  SVR:
+    class: sklearn.svm.SVR
+    default_params:
+      kernel: rbf
+    param_grid:
+      C: [0.1, 1, 10]
+      kernel: [rbf, linear]
+
+  # LinearRegression:
+  #   class: sklearn.linear_model.LinearRegression
+  #   default_params: {}
+  #   param_grid: {}
+
+  # Ridge:
+  #   class: sklearn.linear_model.Ridge
+  #   default_params:
+  #     alpha: 1.0
+  #   param_grid:
+  #     alpha: [0.1, 1.0, 10.0, 100.0]
